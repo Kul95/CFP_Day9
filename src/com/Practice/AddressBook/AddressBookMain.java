@@ -75,6 +75,27 @@ public class AddressBookMain {
             System.out.println("Contact details updated successfully....");
         }
     }
+
+    // Delete Contact details....
+    public void deleteContacts() {
+        boolean found=false;
+        System.out.println("Enter your first name: ");
+        String firstName = sc.nextLine();
+        Contacts contactDelete = null;
+        for (Contacts contacts2 : set) {
+            if (contacts2.getFirstName().equals(contacts2.firstName)) {
+                contactDelete = contacts2;
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("Contact details is not present..");
+        } else {
+            set.remove(contactDelete);
+            System.out.println("Contact details deleted successfully");
+        }
+
+    }
     static boolean ordering = true;
     public static void main(String[] args) {
         AddressBookMain addressBookMain1 = new AddressBookMain();
@@ -101,6 +122,11 @@ public class AddressBookMain {
                 case 3:
                     System.out.println("Update Contacts: ");
                     addressBookMain1.updateContacts();
+                    break;
+                // Delete Contacts....
+                case 4:
+                    System.out.println("Delete Contacts: ");
+                    addressBookMain1.deleteContacts();
                     break;
                 default:
                     System.out.println("Please enter valid choice: ");
